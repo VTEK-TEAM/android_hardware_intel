@@ -3,6 +3,11 @@ ifeq ($(ENABLE_IMG_GRAPHICS),true)
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
+
+ifeq ($(INTEL_HWC_MOOREFIELD_HAS_LP_BLOBS),true)
+   LOCAL_CFLAGS += -DHAVE_LP_BLOBS
+endif
+
 LOCAL_SRC_FILES:=          \
    wsbm_driver.c           \
    wsbm_fencemgr.c         \
