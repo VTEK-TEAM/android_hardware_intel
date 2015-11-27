@@ -198,6 +198,15 @@ int gralloc_getdisplaystatus(buffer_handle_t handle,  int* status)
 #ifdef BAYTRAIL
     *status = mGralloc->perform(mGralloc, INTEL_UFO_GRALLOC_MODULE_PERFORM_GET_BO_STATUS, handle);
     err = 0;
+#elif defined(LP_BLOBS)
+    int (*get_display_status)(gralloc_module_t*, buffer_handle_t, int*);
+
+    get_display_status = (int (*)(gralloc_module_t*, buffer_handle_t, int*))(mGralloc->reserved_proc[0]);
+    if (get_display_status == NULL) {
+        ALOGE("can't get gralloc_getdisplaystatus(...) \n");
+        return -1;
+    }
+    err = (*get_display_status)(mGralloc, handle, status);
 #else
     uint32_t _status = 0U;
     err = gralloc_get_display_status_img(mGralloc, handle, &_status);
