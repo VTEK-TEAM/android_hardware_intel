@@ -2500,6 +2500,12 @@ typedef struct _VAParseSliceHeaderGroupBuffer
 	unsigned char luma_log2_weight_denom;
 	unsigned char chroma_log2_weight_denom;
 	unsigned char cabac_init_idc;
+
+#ifdef ASUS_ZENFONE2_LP_BLOBS
+        unsigned char pic_order_cnt_lsb;
+        unsigned char pic_parameter_set_id;
+        unsigned short idr_pic_id;
+#else
         unsigned char reserved8bit;
 
         unsigned short pic_order_cnt_lsb;
@@ -2507,6 +2513,8 @@ typedef struct _VAParseSliceHeaderGroupBuffer
 
         unsigned short idr_pic_id;
         unsigned char pic_parameter_set_id;
+#endif
+
 	unsigned char colour_plane_id;
 
 	char slice_alpha_c0_offset_div2;
