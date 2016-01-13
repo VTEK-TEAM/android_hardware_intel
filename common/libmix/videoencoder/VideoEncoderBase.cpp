@@ -1827,14 +1827,14 @@ Encode_Status VideoEncoderBase::renderDynamicBitrate(EncodeTask* task) {
     bitrateControlParam->rc_flags.bits.disable_bit_stuffing = mComParams.rcParams.disableBitsStuffing;
     bitrateControlParam->basic_unit_size = 0;
 
-    LOG_I("bits_per_second = %d\n", bitrateControlParam->bits_per_second);
-    LOG_I("initial_qp = %d\n", bitrateControlParam->initial_qp);
-    LOG_I("min_qp = %d\n", bitrateControlParam->min_qp);
-    LOG_I("max_qp = %d\n", bitrateControlParam->max_qp);
-    LOG_I("target_percentage = %d\n", bitrateControlParam->target_percentage);
-    LOG_I("window_size = %d\n", bitrateControlParam->window_size);
-    LOG_I("disable_frame_skip = %d\n", bitrateControlParam->rc_flags.bits.disable_frame_skip);
-    LOG_I("disable_bit_stuffing = %d\n", bitrateControlParam->rc_flags.bits.disable_bit_stuffing);
+    LOG_V("bits_per_second = %d\n", bitrateControlParam->bits_per_second);
+    LOG_V("initial_qp = %d\n", bitrateControlParam->initial_qp);
+    LOG_V("min_qp = %d\n", bitrateControlParam->min_qp);
+    LOG_V("max_qp = %d\n", bitrateControlParam->max_qp);
+    LOG_V("target_percentage = %d\n", bitrateControlParam->target_percentage);
+    LOG_V("window_size = %d\n", bitrateControlParam->window_size);
+    LOG_V("disable_frame_skip = %d\n", bitrateControlParam->rc_flags.bits.disable_frame_skip);
+    LOG_V("disable_bit_stuffing = %d\n", bitrateControlParam->rc_flags.bits.disable_bit_stuffing);
 
     vaStatus = vaUnmapBuffer(mVADisplay, miscParamBufferID);
     CHECK_VA_STATUS_RETURN("vaUnmapBuffer");
