@@ -1,13 +1,15 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_BOARD_PLATFORM),moorefield)
+ifneq (,$(filter $(TARGET_BOARD_PLATFORM),moorefield clovertrail))
 
 include $(CLEAR_VARS)
 LOCAL_COPY_HEADERS := \
     libmediaparser/mixvbp/vbp_manager/include/vbp_loader.h
 LOCAL_COPY_HEADERS_TO := libmixvbp
 include $(BUILD_COPY_HEADERS)
+
+ifeq ($(TARGET_BOARD_PLATFORM),moorefield)
 
 include $(CLEAR_VARS)
 LOCAL_COPY_HEADERS := \
@@ -23,3 +25,4 @@ LOCAL_COPY_HEADERS := \
 include $(BUILD_COPY_HEADERS)
 
 endif # ifeq ($(TARGET_BOARD_PLATFORM),moorefield)
+endif
