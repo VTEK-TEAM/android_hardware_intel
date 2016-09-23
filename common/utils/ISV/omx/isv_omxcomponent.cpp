@@ -270,8 +270,12 @@ OMX_ERRORTYPE ISVComponent::ISV_GetParameter(
             //FIXME: THIS IS A HACK!! Request NV12 buffer for YV12 format
             //because VSP only support NV12 output
             OMX_VIDEO_PORTDEFINITIONTYPE *video_def = &def->format.video;
+#ifndef ASUS_ZENFONE2_LP_BLOBS
             if ((video_def->eColorFormat == VA_FOURCC_YV12) ||
                 (video_def->eColorFormat == HAL_PIXEL_FORMAT_INTEL_YV12)) {
+#else
+            if (video_def->eColorFormat == VA_FOURCC_YV12) {
+#endif
                 //FIXME workaround Disable ISV for YV12 input
                 mVPPEnabled = false;
                 ALOGI("%s: Disable ISV for YV12 input. mVPPEnabled %d", __func__, mVPPEnabled);
