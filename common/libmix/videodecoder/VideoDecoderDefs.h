@@ -148,8 +148,12 @@ struct VideoConfigBuffer {
     VAProfile profile;
     uint32_t flag;
     void *graphicBufferHandler[MAX_GRAPHIC_BUFFER_NUM];
+#ifdef ASUS_ZENFONE2_LP_BLOBS
+    uint32_t graphicBufferStride;
+#else
     uint32_t graphicBufferHStride;
     uint32_t graphicBufferVStride;
+#endif
     uint32_t graphicBufferColorFormat;
     uint32_t graphicBufferWidth;
     uint32_t graphicBufferHeight;
