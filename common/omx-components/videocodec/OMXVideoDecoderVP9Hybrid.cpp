@@ -78,14 +78,13 @@ OMX_ERRORTYPE OMXVideoDecoderVP9Hybrid::ProcessorInit(void) {
 #endif
     if (!gralloc_mode) {
 #ifdef ASUS_ZENFONE2_LP_BLOBS
--        bufferSize = 1920 * 1088 * 1.5;
--        bufferStride = 1920;
--        bufferHeight = 1088;
+        bufferSize = 1920 * 1088 * 1.5;
+        bufferStride = 1920;
 #else
         bufferHStride = 1920;
         bufferVStride = 1088;
-        bufferHeight = 1080;
 #endif
+        bufferHeight = 1080;
         bufferWidth = 1920;
         bufferCount = 12;
     } else {
@@ -100,12 +99,11 @@ OMX_ERRORTYPE OMXVideoDecoderVP9Hybrid::ProcessorInit(void) {
             mGraphicBufferParam.graphicBufferColorFormat = def_output->format.video.eColorFormat;
 #ifdef ASUS_ZENFONE2_LP_BLOBS
             mGraphicBufferParam.graphicBufferStride = (def_output->format.video.nFrameWidth + VP9_YV12_ALIGN) & ~VP9_YV12_ALIGN;
-            mGraphicBufferParam.graphicBufferHeight = (def_output->format.video.nFrameHeight + 0x1f) & ~0x1f;
 #else
             mGraphicBufferParam.graphicBufferHStride = (def_output->format.video.nFrameWidth + VP9_YV12_ALIGN) & ~VP9_YV12_ALIGN;
             mGraphicBufferParam.graphicBufferVStride = (def_output->format.video.nFrameHeight + 0x1f) & ~0x1f;
-            mGraphicBufferParam.graphicBufferHeight = def_output->format.video.nFrameHeight;
 #endif
+            mGraphicBufferParam.graphicBufferHeight = def_output->format.video.nFrameHeight;
             mGraphicBufferParam.graphicBufferWidth = def_output->format.video.nFrameWidth;
             mDecodedImageWidth = def_output->format.video.nFrameWidth;
             mDecodedImageHeight = def_output->format.video.nFrameHeight;
@@ -187,8 +185,8 @@ OMX_ERRORTYPE OMXVideoDecoderVP9Hybrid::ProcessorReset(void)
 #endif
     if (!gralloc_mode) {
 #ifdef ASUS_ZENFONE2_LP_BLOBS
--        bufferSize = mDecodedImageWidth * mDecodedImageHeight * 1.5;
--        bufferStride = mDecodedImageWidth;
+        bufferSize = mDecodedImageWidth * mDecodedImageHeight * 1.5;
+        bufferStride = mDecodedImageWidth;
 #else
         bufferHStride = mDecodedImageWidth;
         bufferVStride = mDecodedImageHeight;
@@ -209,12 +207,11 @@ OMX_ERRORTYPE OMXVideoDecoderVP9Hybrid::ProcessorReset(void)
             mGraphicBufferParam.graphicBufferColorFormat = def_output->format.video.eColorFormat;
 #ifdef ASUS_ZENFONE2_LP_BLOBS
             mGraphicBufferParam.graphicBufferStride = (def_output->format.video.nFrameWidth + VP9_YV12_ALIGN) & ~VP9_YV12_ALIGN;
-            mGraphicBufferParam.graphicBufferHeight = (def_output->format.video.nFrameHeight  + 0x1f) & ~0x1f;
 #else
             mGraphicBufferParam.graphicBufferHStride = (def_output->format.video.nFrameWidth + VP9_YV12_ALIGN) & ~VP9_YV12_ALIGN;
             mGraphicBufferParam.graphicBufferVStride = (def_output->format.video.nFrameHeight + 0x1f) & ~0x1f;
-            mGraphicBufferParam.graphicBufferHeight = def_output->format.video.nFrameHeight;
 #endif
+            mGraphicBufferParam.graphicBufferHeight = def_output->format.video.nFrameHeight;
             mGraphicBufferParam.graphicBufferWidth = def_output->format.video.nFrameWidth;
         } else{
             bufferCount = mOMXBufferHeaderTypePtrNum;
@@ -225,15 +222,14 @@ OMX_ERRORTYPE OMXVideoDecoderVP9Hybrid::ProcessorReset(void)
             }
         }
 #ifdef ASUS_ZENFONE2_LP_BLOBS
--        bufferSize = mGraphicBufferParam.graphicBufferStride *
--                          mGraphicBufferParam.graphicBufferHeight * 1.5;
--        bufferStride = mGraphicBufferParam.graphicBufferStride;
--        bufferHeight = mGraphicBufferParam.graphicBufferHeight;
+        bufferSize = mGraphicBufferParam.graphicBufferStride *
+                          mGraphicBufferParam.graphicBufferHeight * 1.5;
+        bufferStride = mGraphicBufferParam.graphicBufferStride;
 #else
         bufferHStride = mGraphicBufferParam.graphicBufferHStride;
         bufferVStride = mGraphicBufferParam.graphicBufferVStride;
-        bufferHeight = mGraphicBufferParam.graphicBufferHeight;
 #endif
+        bufferHeight = mGraphicBufferParam.graphicBufferHeight;
         bufferWidth = mGraphicBufferParam.graphicBufferWidth;
     }
 
