@@ -34,7 +34,7 @@ endif
 LOCAL_C_INCLUDES := \
     $(TARGET_OUT_HEADERS)/libva \
     $(call include-path-for, frameworks-native) \
-    $(TARGET_OUT_HEADERS)/pvr/hal
+    $(TARGET_OUT_HEADERS)/pvr
 
 ifeq ($(ENABLE_IMG_GRAPHICS),)
 LOCAL_C_INCLUDES += \
