@@ -556,7 +556,7 @@ ttm_pool_ub_create(struct _WsbmBufferPool *pool, unsigned long size, uint32_t pl
     arg.req.placement = placement;
     arg.req.page_alignment = alignment / pageSize;
     arg.req.user_address = (unsigned long)user_ptr;
-#ifndef ASUS_ZENFONE2_LP_BLOBS
+#ifndef PRE_ION_X86
     arg.req.fd = fd;
 #endif
 

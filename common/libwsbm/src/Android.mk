@@ -23,6 +23,10 @@ LOCAL_C_INCLUDES :=            \
    $(TARGET_OUT_HEADERS)/libdrm/shared-core \
    $(TARGET_OUT_HEADERS)/libttm
 
+ifeq ($(BOARD_USES_PRE_ION_X86),true)
+   LOCAL_CFLAGS += -DPRE_ION_X86
+endif
+
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE:= libwsbm
 LOCAL_SHARED_LIBRARIES:= libdrm
