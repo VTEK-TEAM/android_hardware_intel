@@ -15,6 +15,7 @@
 */
 
 #include "VideoDecoderBase.h"
+#include <stdlib.h> // pulls in declaration of malloc, free
 #include "VideoDecoderTrace.h"
 #include <string.h>
 #include <va/va_android.h>
