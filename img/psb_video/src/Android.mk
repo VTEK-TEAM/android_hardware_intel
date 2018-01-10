@@ -46,7 +46,6 @@ LOCAL_CFLAGS := \
 
 LOCAL_C_INCLUDES := \
     $(call include-path-for, libhardware)/hardware \
-    system/core/libsync/include \
     $(TARGET_OUT_HEADERS)/libva \
     $(TARGET_OUT_HEADERS)/libttm \
     $(TARGET_OUT_HEADERS)/libwsbm \
@@ -56,7 +55,7 @@ LOCAL_C_INCLUDES := \
     $(LOCAL_PATH)/hwdefs
 
 LOCAL_SHARED_LIBRARIES += libdl libdrm libwsbm libcutils \
-    libutils libbinder libhardware liblog libsync libnativewindow
+    libutils libbinder libhardware liblog libnativewindow
 
 LOCAL_HEADER_LIBRARIES := \
     libsystem_headers
@@ -191,3 +190,4 @@ LOCAL_MODULE := pvr_drv_video
 include $(BUILD_SHARED_LIBRARY)
 
 endif # ($(ENABLE_IMG_GRAPHICS),true)
+
